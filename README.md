@@ -1,13 +1,16 @@
-# [react-hn](https://react-hn.appspot.com)
+Project based on the work of Addy Osmani.
+Updated design and performance improvements by Laura Hanna-White
+
+
+
+
 
 A [React](http://facebook.github.io/react) &
 [react-router](https://github.com/rackt/react-router)-powered implementation of
 [Hacker News](https://news.ycombinator.com) using its
 [Firebase API](https://github.com/HackerNews/API).
 
-[![react-hn screenshot](https://github.com/insin/react-hn/raw/master/screenshot.png "New comment highlighting in react-hn")](https://react-hn.appspot.com)
-
-Live version: https://react-hn.appspot.com/
+[![react-hn screenshot](https://github.com/insin/react-hn/raw/master/screenshot.png "New comment highlighting in react-hn")]
 
 ## Features
 
