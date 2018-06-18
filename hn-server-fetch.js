@@ -1,17 +1,20 @@
 require('isomorphic-fetch')
+var getImageUrls = require('get-image-urls')
+
+
 
 /*
 The official Firebase API (https://github.com/HackerNews/API) requires multiple network
 connections to be made in order to fetch the list of Top Stories (indices) and then the
 summary content of these stories. Directly requesting these resources makes server-side
-rendering cumbersome as it is slow and ultimately requires that you maintain your own 
-cache to ensure full server renders are efficient. 
+rendering cumbersome as it is slow and ultimately requires that you maintain your own
+cache to ensure full server renders are efficient.
 
 To work around this problem, we can use one of the unofficial Hacker News APIs, specifically
-https://github.com/cheeaun/node-hnapi which directly returns the Top Stories and can cache 
+https://github.com/cheeaun/node-hnapi which directly returns the Top Stories and can cache
 responses for 10 minutes. In ReactHN, we can use the unofficial API for a static server-side
-render and then 'hydrate' this once our components have mounted to display the real-time 
-experience. 
+render and then 'hydrate' this once our components have mounted to display the real-time
+experience.
 
 The benefit of this is clients loading up the app that are on flakey networks (or lie-fi)
 can still get a fast render of content before the rest of our JavaScript bundle is loaded.
@@ -27,19 +30,23 @@ exports.fetchNews = function(page) {
 	}).then(function(json) {
 	  var stories = '<ol class="Items__list" start="1">'
 	  json.forEach(function(data, index) {
-	      var story = '<li class="ListItem" style="margin-bottom: 16px;">' +
-	          '<div class="Item__title" style="font-size: 18px;"><a href="' + data.url + '">' + data.title + '</a> ' +
-	          '<span class="Item__host">(' + data.domain + ')</span></div>' +
+		
+
+
+	      var story = '<div class="list-item">' +
+						'<div className= "image"></div>' +
+	          '<div class="item-title testing"> testing <a href="' + data.url + '">' + data.title + '</a> ' +
+	          '</div>' +
 	          '<div class="Item__meta"><span class="Item__score">' + data.points + ' points</span> ' +
 	          '<span class="Item__by">by <a href="https://news.ycombinator.com/user?id=' + data.user + '">' + data.user + '</a></span> ' +
 	          '<time class="Item__time">' + data.time_ago + ' </time> | ' +
 	          '<a href="/news/story/' + data.id + '">' + data.comments_count + ' comments</a></div>'
-	      '</li>'
+	      '</div>'
 	      stories += story
 	  })
 	  stories += '</ol>'
 	  return stories
-	})		
+	})
 }
 
 function renderNestedComment(data) {
@@ -65,7 +72,7 @@ function generateNestedCommentString(data) {
 		output+= renderNestedComment(comment)
 		if (comment.comments) {
 			output+= generateNestedCommentString(comment)
-		} 
+		}
 	})
 	return output
 }
@@ -80,7 +87,7 @@ exports.fetchItem = function(itemId) {
 	}).then(function(json) {
 		var comments = ''
 		json.comments.forEach(function(data, index) {
-			var comment = '<div class="Item__kids">' + 
+			var comment = '<div class="Item__kids">' +
 			'<div class="Comment Comment--level0">' +
 		    '<div class="Comment__content">' +
 		        '<div class="Comment__meta"><span class="Comment__collapse" tabindex="0">[–]</span> ' +
@@ -88,7 +95,7 @@ exports.fetchItem = function(itemId) {
 		            '<time>' + data.time_ago + '</time> ' +
 		            '<a href="#/comment/' + data.id + '">link</a></div> ' +
 		        '<div class="Comment__text">' +
-		            '<div>' + data.content +'</div> ' + 
+		            '<div>' + data.content +'</div> ' +
 		            '<p><a href="https://news.ycombinator.com/reply?id=' + data.id + '">reply</a></p>' +
 		        '</div>' +
 		    '</div>' +

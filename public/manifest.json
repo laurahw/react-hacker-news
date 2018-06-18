@@ -1,6 +1,6 @@
 {
-  "name": "React HN",
-  "short_name": "React HN",
+  "name": "Hacker News",
+  "short_name": "Hacker News",
   "icons": [{
         "src": "img/apple-touch-icon-120x120.png",
         "sizes": "120x120",

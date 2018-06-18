@@ -1,22 +1,4 @@
-body {
-  background-color: #fff;
-  margin: 0;
-}
-form {
-  margin: 0;
-}
-img {
-  vertical-align: text-bottom;
-}
-pre {
-  white-space: pre-wrap;
-}
-span.control {
-  cursor: pointer;
-}
-span.control:hover {
-  text-decoration: underline;
-}
+
 
 /* From https://github.com/tobiasahlin/SpinKit */
 .Spinner {

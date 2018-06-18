@@ -51,15 +51,16 @@ var App = React.createClass({
   render() {
     return <div className="App" onClick={this.state.showSettings && this.toggleSettings}>
       <div className="App__wrap">
-        <div className="App__header">
-          <Link to="/news" className="App__homelinkicon"><img src="img/logo.png" width="16" height="16" alt="" /></Link>{' '}
-          <Link to="/news" activeClassName="active" className="App__homelink">React HN</Link>{' '}
-          <Link to="/newest" activeClassName="active">new</Link>{' | '}
-          <Link to="/newcomments" activeClassName="active">comments</Link> {' | '}
-          <Link to="/show" activeClassName="active">show</Link>{' | '}
-          <Link to="/ask" activeClassName="active">ask</Link>{' | '}
-          <Link to="/jobs" activeClassName="active">jobs</Link>
-          <a className="App__settings" tabIndex="0" onClick={this.toggleSettings} onKeyPress={this.toggleSettings}>
+        <div className="header">
+          <Link to="/news" activeClassName="active" className="home-link">Hacker News</Link>{' '}
+          <Link to="/newest" activeClassName="active" className="header-link">New</Link>{' | '}
+          <Link to="/newcomments" activeClassName="active" className="header-link">Comments</Link> {' | '}
+          <Link to="/show" activeClassName="active" className="header-link">Show</Link>{' | '}
+          <Link to="/ask" activeClassName="active" className="header-link">Ask</Link>{' | '}
+          <Link to="/jobs" activeClassName="active" className="header-link">Jobs</Link>
+
+          <a className="settings" tabIndex="0" onClick={this.toggleSettings} onKeyPress={this.toggleSettings}>
+            <img src="/img/cog.svg" className="cog-icon"/>
             {this.state.showSettings ? 'hide settings' : 'settings'}
           </a>
           {this.state.showSettings && <Settings key="settings"/>}
@@ -68,8 +69,8 @@ var App = React.createClass({
           <div dangerouslySetInnerHTML={{ __html: this.state.prebootHTML }}/>
           {this.state.showChildren ? this.props.children : ''}
         </div>
-        <div className="App__footer">
-          <a href="https://github.com/insin/react-hn">insin/react-hn</a>
+        <div className="footer">
+          <a href="https://github.com/laurahw/react-hn">Github Repo</a>
         </div>
       </div>
     </div>

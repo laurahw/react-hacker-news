@@ -1,0 +1,50 @@
+@import "variables";
+@import "fonts";
+
+.list-item{
+  background-color: $tile-background;
+  width: 20%;
+  height: 280px;
+  display: block;
+  float: left;
+  margin-top: 10px;
+  padding: 20px;
+  &:nth-child(even){
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .image-box{
+    text-align: center;
+    img{
+      height: 130px;
+      width: 130px;
+      border: 1px solid $white;
+    }
+
+  }
+  .item-title{
+    color: $title-color;
+    font-family: $exo;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    a{
+      color: $title-color;
+      text-decoration: none;
+    }
+  }
+
+  .Item__meta{
+    margin-top: 5px;
+    color: $secondary-color;
+    a{
+      color: $secondary-color;
+      text-decoration: none;
+      &:hover{
+        color: $title-color;
+      }
+    }
+  }
+
+}

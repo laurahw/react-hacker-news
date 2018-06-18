@@ -71,21 +71,21 @@ var Stories = React.createClass({
       var dummyItems = []
       for (var i = page.startIndex; i < page.endIndex; i++) {
         dummyItems.push(
-          <li key={i} className="ListItem ListItem--loading" style={{marginBottom: SettingsStore.listSpacing}}>
+          <div key={i} className="list-item list-item--loading">
             <Spinner/>
-          </li>
+        </div>
         )
       }
       return <div className="Items Items--loading">
-        <ol className="Items__list" start={page.startIndex + 1}>{dummyItems}</ol>
+        <div className="Items__list" start={page.startIndex + 1}>{dummyItems}</div>
         <Paginator route={this.props.route} page={page.pageNum} hasNext={page.hasNext}/>
       </div>
     }
 
     return <div className="Items">
-      <ol className="Items__list" start={page.startIndex + 1}>
+      <div className="Items__list" start={page.startIndex + 1}>
         {this.renderItems(page.startIndex, page.endIndex)}
-      </ol>
+      </div>
       <Paginator route={this.props.route} page={page.pageNum} hasNext={page.hasNext}/>
     </div>
   },

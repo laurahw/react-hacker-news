@@ -1,0 +1,52 @@
+@import "variables";
+@import "fonts";
+
+.header{
+  background-color: $grey;
+
+  font-size: 18px;
+  padding: 20px;
+
+
+  .home-link{
+    font-weight: 700;
+    color: $white;
+    font-size: 22px;
+    font-family: $syncopate;
+    text-decoration: none;
+
+    &:hover{
+      color: $secondary-color;
+
+    }
+
+    margin-right: 20px;
+
+  }
+
+  .header-link{
+      text-decoration: none;
+      color: $white;
+      font-family: $exo;
+      &:hover{
+        color: $secondary-color;
+      }
+
+  }
+
+  .settings{
+    float: right;
+    color: $white;
+    font-family: $exo;
+    position: relative;
+    &:hover{
+      color: $secondary-color;
+    }
+    .cog-icon{
+      height: 30px;
+      position: absolute;
+      left: -35px;
+      top: -4px;
+    }
+  }
+}

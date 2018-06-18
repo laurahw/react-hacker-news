@@ -84,11 +84,11 @@ var Updates = React.createClass({
     }
     else {
       return <div className="Updates Items">
-        <ol className="Items__list" start={page.startIndex + 1}>
+        <div className="Items__list" start={page.startIndex + 1}>
           {items.slice(page.startIndex, page.endIndex).map(function(item) {
             return <DisplayListItem key={item.id} item={item}/>
           })}
-        </ol>
+        </div>
         <Paginator route="newest" page={page.pageNum} hasNext={page.hasNext}/>
       </div>
     }

@@ -6,12 +6,7 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer')
     sass = require('gulp-sass');
 
-// // Minifies JS
-// gulp.task('js', function(){
-//     return gulp.src('src/js/*.js')
-//     .pipe(uglify())
-//     .pipe(gulp.dest('public/js'))
-// });
+
 
 gulp.task('styles', function(){
     return gulp.src('src/scss/**/*.scss')
@@ -26,5 +21,4 @@ gulp.task('styles', function(){
 
 gulp.task('default', function() {
     gulp.start('styles')
-    gulp.watch('src/sass/**/*.sass', ['styles'])
 });

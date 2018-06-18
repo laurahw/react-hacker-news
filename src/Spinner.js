@@ -10,10 +10,10 @@ var Spinner = React.createClass({
   render() {
     var bounceSize = this.props.size + 'px'
     var bounceStyle = {height: bounceSize, width: bounceSize, marginRight: this.props.spacing + 'px'}
-    return <div className="Spinner" style={{width: ((Number(this.props.size) + Number(this.props.spacing)) * 3) + 'px'}}>
-      <div className="bounce1" style={bounceStyle}/>
-      <div className="bounce2" style={bounceStyle}/>
-      <div className="bounce3" style={bounceStyle}/>
+    return <div className="Spinner">
+      <div className="bounce1"/>
+      <div className="bounce2"/>
+      <div className="bounce3"/>
     </div>
   }
 })
