@@ -65,7 +65,7 @@ var App = React.createClass({
           </a>
           {this.state.showSettings && <Settings key="settings"/>}
         </div>
-        <div className="App__content">
+        <div className="content">
           <div dangerouslySetInnerHTML={{ __html: this.state.prebootHTML }}/>
           {this.state.showChildren ? this.props.children : ''}
         </div>
